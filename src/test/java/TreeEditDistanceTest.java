@@ -25,4 +25,13 @@ public class TreeEditDistanceTest {
         assertEquals(num_files - 1, new TreeEditDistanceArray(home_dir, "python").compute().length);
     }
 
+    @Test
+    public void treeEditDistanceArrayOfTestSubsetShouldEqualExpectedValues() throws Exception {
+        Path directory = Paths.get("resources/python/test_subset/");
+        double[] arr = new TreeEditDistanceArray(directory, "python").compute();
+        double[] expected = {76, 73, 65, 70};
+        assertArrayEquals(expected, arr, 0.001);
+    }
+
+
 }

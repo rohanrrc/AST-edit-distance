@@ -29,7 +29,6 @@ public class TreeEditDistance {
     }
 
     protected File[] getFiles() throws Exception {
-        String fs2;
         File folder = new File(this.astDir.toUri());
         File[] listOfFiles = folder.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
