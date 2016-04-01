@@ -16,6 +16,6 @@ public class TreeEditDistanceTest {
         String ast = "resources/python/test_subset/ast/1.ast";
         LblTree lt = LblTree.fromString((new BufferedReader(new FileReader(ast))).readLine());
         assertEquals(0, new EditDist(true).nonNormalizedTreeDist(lt,lt), 0.001);
-    }
+    } 
 
 }
