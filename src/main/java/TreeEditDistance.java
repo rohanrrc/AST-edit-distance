@@ -24,7 +24,7 @@ public class TreeEditDistance {
         try {
             return LblTree.fromString((new BufferedReader(new FileReader(filename))).readLine());
         } catch (Exception e) {
-            throw new Exception("TREE1 argument has wrong format "+e.toString());
+            throw new RuntimeException("Failed to reconstruct AST from file - check for malformed input " + e.toString());
         }
     }
 

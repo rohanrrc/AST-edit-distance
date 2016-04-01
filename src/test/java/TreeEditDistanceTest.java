@@ -5,6 +5,7 @@ import tree.LblTree;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -38,6 +39,12 @@ public class TreeEditDistanceTest {
         Path directory = Paths.get("resources/ruby/test_subset/");
         Path expected = Paths.get("resources/ruby/test_subset/jast");
         assertEquals(expected, new TreeEditDistance(directory, "ruby").getDir());
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void malformedASTShouldThrowException() throws Exception{
+        Path home_dir = Paths.get("resources/python/test_subset/");
+        new TreeEditDistanceArray(home_dir, "python").compute();
     }
 
 }
