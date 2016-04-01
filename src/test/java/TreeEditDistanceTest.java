@@ -63,4 +63,17 @@ public class TreeEditDistanceTest {
         assertEquals(num_files, matrix[0].length);
     }
 
+    @Test
+    public void elementIJofTEDMatrixShouldEqualElementJIofTEDMatrix() throws Exception {
+        Path directory = Paths.get("resources/python/test_subset/");
+        double[][] matrix = new TreeEditDistanceMatrix(directory, "python").compute();
+        for (int i = 0; i < matrix.length; i++)
+        {
+            for (int j = i; j < matrix.length; j++)
+            {
+                assertEquals(matrix[i][j], matrix[j][i], 0.001);
+            }
+        }
+    }
+
 }

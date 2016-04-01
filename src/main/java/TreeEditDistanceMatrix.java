@@ -21,6 +21,15 @@ public class TreeEditDistanceMatrix extends TreeEditDistance{
             trees[i] = buildTree(listOfFiles[i]);
         }
         double[][] distmatrix = new double[listOfFiles.length][listOfFiles.length];
+        for (int i = 0; i < listOfFiles.length; i++)
+        {
+            for (int j = i; j < listOfFiles.length; j++)
+            {
+                double dist = Math.random(); //to do: implement TED here
+                distmatrix[i][j] = dist;
+                distmatrix[j][i] = dist;
+            }
+        }
         return  distmatrix;
     }
 
