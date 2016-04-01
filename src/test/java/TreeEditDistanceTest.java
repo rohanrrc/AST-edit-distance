@@ -85,5 +85,17 @@ public class TreeEditDistanceTest {
         }
     }
 
-
+    @Test
+    public void treeEditDistanceMatrixOfTestSubsetShouldEqualExpectedValues() throws Exception {
+        Path directory = Paths.get("resources/python/test_subset/");
+        double[][] matrix = new TreeEditDistanceMatrix(directory, "python").compute();
+        double[][] expected = {{0, 49, 86, 34, 76},
+                {49, 0, 87, 57, 73},
+                {86, 87, 0, 102, 65},
+                {34, 57, 102, 0, 70},
+                {76, 73, 65, 70, 0}};
+        for (int i = 0; i < matrix.length; i++){
+            assertArrayEquals(expected[i], matrix[i], 0.001);
+        }
+    }
 }
