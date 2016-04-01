@@ -47,4 +47,9 @@ public class TreeEditDistanceTest {
         new TreeEditDistanceArray(home_dir, "python").compute();
     }
 
+    @Test
+    public void emptyDirectoriesShouldReturnNull() throws Exception{
+        Path home_dir = Paths.get("resources/python/empty_subset/");
+        assertEquals(null, new TreeEditDistanceArray(home_dir, "python").compute());
+    }
 }

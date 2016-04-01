@@ -12,6 +12,9 @@ public class TreeEditDistanceArray extends TreeEditDistance{
 
     public double[] compute() throws Exception {
         File[] listOfFiles = getFiles();
+        if (listOfFiles.length == 0){
+            return null;
+        }
         LblTree lt1 = buildTree(listOfFiles[listOfFiles.length - 1]);
         double[] res = new double[listOfFiles.length-1];
         for (int i = 0; i < listOfFiles.length-1; i++)
