@@ -44,12 +44,14 @@ public class TreeEditDistanceTest {
     @Test(expected = RuntimeException.class)
     public void malformedASTShouldThrowException() throws Exception{
         Path home_dir = Paths.get("resources/python/malformed_subset/");
-        new TreeEditDistanceArray(home_dir, "python").compute();
+        System.out.print(new TreeEditDistanceArray(home_dir, "python").compute());
     }
 
     @Test
     public void emptyDirectoriesShouldReturnNull() throws Exception{
         Path home_dir = Paths.get("resources/python/empty_subset/");
-        assertEquals(null, new TreeEditDistanceArray(home_dir, "python").compute());
+        TreeEditDistanceArray x = new TreeEditDistanceArray(home_dir, "python");
+        System.out.print(x.getDir());
+        assertEquals(null, x.compute());
     }
 }

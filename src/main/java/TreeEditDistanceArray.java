@@ -11,8 +11,13 @@ public class TreeEditDistanceArray extends TreeEditDistance{
     }
 
     public double[] compute() throws Exception {
-        File[] listOfFiles = getFiles();
-        if (getFiles().length == 0){
+        File[] listOfFiles;
+        try {
+            listOfFiles = getFiles();
+        } catch (Exception e){
+            return null;
+        }
+        if (listOfFiles.length == 0){
             return null;
         }
         LblTree lt1 = buildTree(listOfFiles[listOfFiles.length - 1]);

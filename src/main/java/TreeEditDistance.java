@@ -35,7 +35,6 @@ public class TreeEditDistance {
                 return name.toLowerCase().endsWith("ast");
             }
         });
-
         try {
             Arrays.sort(listOfFiles,
                     new Comparator<File>() {
