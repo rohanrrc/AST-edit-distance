@@ -43,7 +43,7 @@ public class TreeEditDistanceTest {
 
     @Test(expected = RuntimeException.class)
     public void malformedASTShouldThrowException() throws Exception{
-        Path home_dir = Paths.get("resources/python/test_subset/");
+        Path home_dir = Paths.get("resources/python/malformed_subset/");
         new TreeEditDistanceArray(home_dir, "python").compute();
     }
 
