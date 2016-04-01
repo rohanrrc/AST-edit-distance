@@ -76,4 +76,14 @@ public class TreeEditDistanceTest {
         }
     }
 
+    @Test
+    public void entriesAlongDiagonalOfDistanceMatrixShouldBeZero() throws Exception {
+        Path directory = Paths.get("resources/python/test_subset/");
+        double[][] matrix = new TreeEditDistanceMatrix(directory, "python").compute();
+        for (int i = 0; i < matrix.length; i++){
+            assertEquals(0, matrix[i][i], 0.001);
+        }
+    }
+
+
 }
