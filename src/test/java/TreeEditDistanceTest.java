@@ -33,5 +33,11 @@ public class TreeEditDistanceTest {
         assertArrayEquals(expected, arr, 0.001);
     }
 
+    @Test
+    public void systemShouldUseJastFolderForRubyASTs() throws Exception {
+        Path directory = Paths.get("resources/ruby/test_subset/");
+        Path expected = Paths.get("resources/ruby/test_subset/jast");
+        assertEquals(expected, new TreeEditDistance(directory, "ruby").getDir());
+    }
 
 }

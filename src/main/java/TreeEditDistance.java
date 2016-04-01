@@ -14,7 +14,7 @@ public class TreeEditDistance {
     public TreeEditDistance(Path homeDir, String lang) {
         if (lang.equals("ruby")) {
             this.astDir = homeDir.resolve("jast");
-        } else {
+        } else if (lang.equals("python")){
             this.astDir = homeDir.resolve("ast");
         }
     }
